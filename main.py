@@ -12,4 +12,4 @@ while True:
     print('Thank you for playing!')
     clear
  elif done == "no":
-    print(game)
+    game()
