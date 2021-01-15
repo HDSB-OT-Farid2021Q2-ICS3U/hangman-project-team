@@ -1,4 +1,4 @@
-# word list 
+# TODO: computer picks word (from word list) that is going to be guessed
 
 import random
 import wordlist # list of possible words
