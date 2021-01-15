@@ -1,8 +1,10 @@
 # word list 
 
 import random
-import wordlist
+import wordlist # list of possible words
 
-x = random.randint(0, len(wordlist.wordlist)-1)
+x = random.randint(0, len(wordlist.wordlist)-1) # position of random word in word list
 
-word=wordlist.wordlist.pop(x)
+word=wordlist.wordlist.pop(x) # random word
+
+print(word) 
