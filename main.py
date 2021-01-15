@@ -7,9 +7,11 @@ x = random.randint(0, len(wordlist.wordlist)-1) # position of random word in wor
 
 word=wordlist.wordlist.pop(x) # random word
 
-print(word) 
+
 
 #TODO check w/others
+
+letter=input('Enter a letter guess:')
 
 def blanks(word):
     '''prints the blanks of the word'''
