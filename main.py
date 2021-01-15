@@ -1,8 +1,9 @@
-# 
-# TODO: enter question details here
-# 
-# date and time completed: yyyy-mm-dd hh:mm
+# word list 
 
-import word_lists
+import random
+import wordlist
 
-print(word_lists.x)
+x = random.randint(0, len(wordlist.wordlist)-1)
+
+
+print(wordlist.wordlist.pop(x))
