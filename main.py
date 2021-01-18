@@ -1,5 +1,11 @@
 import os 
-clear = lambda: os.system('clear')
+system = input("Do you use Windows or Mac? ")
+if system.lower() == "windows":
+    cls = lambda: os.system('cls)
+elif system.lower() == "mac":
+    clear = lambda: os.system('clear')
+else:
+    cls = lambda: os.system('cls)   
 
 #computer picks word (from word list) that is going to be guessed
 import random
