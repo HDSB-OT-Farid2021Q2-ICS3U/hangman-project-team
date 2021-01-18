@@ -28,3 +28,4 @@ def guessing(word):
 
 #TODO make the hangman so it'll draw another part if wrong
 
+.
