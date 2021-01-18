@@ -1,15 +1,6 @@
 import os 
 clear = lambda: os.system('clear')
 
-#Final Question to continue the game
-while True: 
-  done = input('Are you done playing the game?(yes or no)')
-  if done == 'yes':
-    print('Thank you for playing!')
-    clear
-  elif done == "no":
-    game()
-
 #computer picks word (from word list) that is going to be guessed
 import random
 import wordlist # list of possible words
@@ -37,27 +28,25 @@ def guessing(word):
 
 #TODO make the hangman so it'll draw another part if wrong
 
-
-
 def hangman():
   
+  letter=input('Enter a letter guess:')
+
   wrongguesses=0
 
-  for x in word:
-    if letter!=x:
-      wrongguesses+=1
+  if letter not in word:
+    wrongguesses+=1
 
-    if wrongguesses==1:
-      print('O')
-    elif wrongguesses==2:
-      print('|')
-    elif wrongguesses==3:
-      print(chr(92))  
-    elif wrongguesses==4:
-      print('/')
-    elif wrongguesses==5:
-      print('\')
-    elif wrongguesses==6:
-      print(chr(92))
-    elif wrongguesses>=7:
-      break        
+  while wrongguesses<10:
+    letter=input('Enter a letter guess:')
+    
+#Final Question to continue the game
+while True: 
+  done = input('Are you done playing the game?(yes or no)')
+  if done == 'yes':
+    print('Thank you for playing!')
+    clear
+  elif done == "no":
+    game()
+
+
