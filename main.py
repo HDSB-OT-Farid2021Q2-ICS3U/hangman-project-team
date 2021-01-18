@@ -1,7 +1,7 @@
 import os 
 clear = lambda: os.system('clear')
 
-
+#Final Question to continue the game
 while True: 
   done = input('Are you done playing the game?(yes or no)')
   if done == 'yes':
