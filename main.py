@@ -28,3 +28,17 @@ def guessing(word):
 
 #TODO make the hangman so it'll draw another part if wrong
 
+def hangman():
+  
+  letter=input('Enter a letter guess:')
+
+  wrongguesses=0
+
+  if letter not in word:
+    wrongguesses+=1
+
+  while wrongguesses<10:
+    letter=input('Enter a letter guess:')
+
+
+
