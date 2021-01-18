@@ -56,7 +56,7 @@ def hangman():
     elif wrongguesses==4:
       print('/')
     elif wrongguesses==5:
-      print('/')
+      print('\')
     elif wrongguesses==6:
       print(chr(92))
     elif wrongguesses>=7:
