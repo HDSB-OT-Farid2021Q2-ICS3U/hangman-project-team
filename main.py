@@ -1,5 +1,7 @@
-# TODO: computer picks word (from word list) that is going to be guessed
+import os 
+clear = lambda: os.system('clear')
 
+#computer picks word (from word list) that is going to be guessed
 import random
 import wordlist # list of possible words
 
@@ -8,9 +10,6 @@ x = random.randint(0, len(wordlist.wordlist)-1) # position of random word in wor
 word=wordlist.wordlist.pop(x) # random word
 
 
-
-#TODO check w/others
-
 letter=input('Enter a letter guess:')
 
 def blanks(word):
@@ -18,6 +17,7 @@ def blanks(word):
     blanks = [x if x == letter.lower() else "_" for x in word] 
     print(" ".join(blanks))
 
+# below is for guessing the whole word (not individual letter)
 def guessing(word):
     '''user is going to guess the word, checks if it's right'''
     guess = input("Enter your guess: ")
@@ -39,6 +39,14 @@ def hangman():
 
   while wrongguesses<10:
     letter=input('Enter a letter guess:')
-
+    
+#Final Question to continue the game
+while True: 
+  done = input('Are you done playing the game?(yes or no)')
+  if done == 'yes':
+    print('Thank you for playing!')
+    clear
+  elif done == "no":
+    game()
 
 
