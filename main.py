@@ -7,38 +7,43 @@ import wordlist # list of possible words
 
 x = random.randint(0, len(wordlist.wordlist)-1) # position of random word in word list
 
-word=wordlist.wordlist.pop(x) # random word
+word = wordlist.wordlist.pop(x) # random word
 
-
-letter=input('Enter a letter guess:')
-
-def blanks(word):
-    '''prints the blanks of the word'''
-    blanks = [x if x == letter.lower() else "_" for x in word] 
-    print(" ".join(blanks))
-
-# below is for guessing the whole word (not individual letter)
-def guessing(word):
-    '''user is going to guess the word, checks if it's right'''
-    guess = input("Enter your guess: ")
-    if guess.lower() == word:
-        print("Yay you guessed it!")
-    else:
-        print("Oops, try again")
-
-#TODO make the hangman so it'll draw another part if wrong
+def blanks(word, letter, blank):
+    where = word.find(letter)
+    blank[where] = letter
+    print(" ".join(blank))
 
 def hangman():
-  
-  letter=input('Enter a letter guess:')
-
+  letter = input('Enter a letter guess:')
   wrongguesses=0
-
   if letter not in word:
     wrongguesses+=1
-
   while wrongguesses<10:
     letter=input('Enter a letter guess:')
+    
+def game(word):
+    print("~Hangman!~")
+    blank = [x if x == " " else "_" for x in word]
+    print(" ".join(blank))
+    guess = ""
+    while guess != word:
+        which = input("Would you like to guess a letter or the word? ")
+        if which.lower() == "letter":
+            letter = input("Enter a letter: ")
+            if letter in word:
+                blanks(word, letter, blank)
+            else:
+                print(" ".join(blank))
+        elif which.lower() == "word":
+            guess = input("Enter your guess: ")
+            if guess.lower() == word:
+                print("Yay you guessed it!")
+                break
+            else:
+                print("Oops, try again")
+
+game(word)
     
 #Final Question to continue the game
 while True: 
@@ -48,5 +53,4 @@ while True:
     clear
   elif done == "no":
     game()
-
 
