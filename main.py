@@ -1,15 +1,15 @@
 #asking so we know which clear to use
 import os 
-system = input("Do you use Windows or Mac? ")
-if system.lower() == "windows":
+system = input("Do you use cls or clear? ")
+if system.lower() == "cls":
     cls = lambda: os.system('cls')
-elif system.lower() == "mac":
+elif system.lower() == "clear":
     clear = lambda: os.system('clear')
 else:
     cls = lambda: os.system('cls')   
 
 def clearing(system):
-    if system == "mac":
+    if system == "clear":
         clear()
     else:
         cls()
@@ -25,8 +25,13 @@ def randomword():
 
 # function that prints the "_"
 def blanks(word, letter, blank):
-    where = word.find(letter)
-    blank[where] = letter
+    for x in range(0, len(word)):
+        if word[x] == letter.lower():
+            blank[x] = letter
+        elif blank[x] != "_":
+            continue
+        else:
+            blank[x] = "_"
     print(" ".join(blank))
     
 def game(word):
@@ -38,7 +43,8 @@ def game(word):
         which = input("Would you like to guess a letter or the word? ")
         if which.lower() == "letter":
             letter = input("Enter a letter: ")
-            if letter in word:
+            lol = ["_" for x in word]
+            if letter.lower() in word:
                 blanks(word, letter, blank)
             else:
                 print(" ".join(blank))
@@ -52,6 +58,8 @@ def game(word):
             else:
                 print("Oops, try again")
                 wrongguesses += 1
+    if wrongguesses >= 10:
+        print(":p sorry you didn't win")
     #Final Question to continue the game
     done = input('Are you done playing the game?(yes or no) ')
     if done == 'yes':
