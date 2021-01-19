@@ -48,6 +48,7 @@ def blanks(word, letter):
     print(" ".join(blank))
 
 def guessedletters(letter):
+    '''checks if letter has already been guessed or not'''
     if letter in listofletters:
         print("You already guessed this letter!")
     else:
@@ -62,6 +63,7 @@ def guessedletters(letter):
 #main game function
 def game(word):
     '''main game function: checks for wrong guesses, asks for guesses'''
+    
     print("~Hangman!~")
     global blank
     blank = [x if x == " " else "_" for x in word]  #variable that holds all the "_"
@@ -102,7 +104,5 @@ def end():
   elif done == "no":
     clearing(system)
     randomword()
-
-#lol
 
 randomword()
