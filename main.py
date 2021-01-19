@@ -32,11 +32,12 @@ import wordlist # list of possible words
 def randomword():
     '''chooses a random word that user will guess'''
     x = random.randint(0, len(wordlist.wordlist)-1) # position of random word in word list
+    global word
     word = wordlist.wordlist.pop(x) # random word
     game(word)
 
 # function that prints the "_" by checking if letter is in word
-def blanks(word, letter):
+def blanks(letter):
     '''checks if letter is in the word or not, replaces them with "_"'''
     for x in range(0, len(word)):
         if word[x] == letter.lower():
@@ -54,10 +55,11 @@ def guessedletters(letter):
     else:
         listofletters.append(letter)
         if letter.lower() in word:
-            blanks(word, letter)
+            blanks(letter)
         else:
             print(" ".join(blank))
-            wrongguesses += 1
+            global wrongguesses
+            wrongguesses = wrongguesses + 1
             print(f'You have {10-wrongguesses} wrong guesses left!')
             
 #main game function
@@ -68,7 +70,7 @@ def game(word):
     global blank
     blank = [x if x == " " else "_" for x in word]  #variable that holds all the "_"
     print(" ".join(blank))
-    global wronguesses
+    global wrongguesses
     wrongguesses = 0
     global listofletters
     listofletters = []
