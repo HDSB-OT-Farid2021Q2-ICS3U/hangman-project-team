@@ -48,6 +48,7 @@ def blanks(letter):
             blank[x] = "_"
     print(" ".join(blank))
 
+#function that checks if the letter has been guessed yet
 def guessedletters(letter):
     '''checks if letter has already been guessed or not'''
     if letter in listofletters:
@@ -62,7 +63,7 @@ def guessedletters(letter):
             wrongguesses = wrongguesses + 1
             print(f'You have {10-wrongguesses} wrong guesses left!')
             
-#main game function
+#main game function (26 lines not counting spaces)
 def game(word):
     '''main game function: checks for wrong guesses, asks for guesses'''
     
@@ -95,7 +96,6 @@ def game(word):
         print(":p sorry you didn't win")
     
     end()
-
 
 #Final Question to continue the game
 def end():
