@@ -33,17 +33,22 @@ def blanks(word, letter, blank):
         else:
             blank[x] = "_"
     print(" ".join(blank))
-    
+
 def game(word):
     print("~Hangman!~")
     blank = [x if x == " " else "_" for x in word]
     print(" ".join(blank))
     wrongguesses = 0
+    listofletters = []
     while wrongguesses < 10:
         which = input("Would you like to guess a letter or the word? ")
         if which.lower() == "letter":
             letter = input("Enter a letter: ")
-            lol = ["_" for x in word]
+            if letter in listofletters:
+                print("You already guessed this letter!")
+                continue
+            else:
+                listofletters.append(letter)
             if letter.lower() in word:
                 blanks(word, letter, blank)
             else:
