@@ -84,15 +84,20 @@ def game(word):
                 
     if wrongguesses >= 10:
         print(":p sorry you didn't win")
-        
-    #Final Question to continue the game
-    done = input('Are you done playing the game?(yes or no) ') #asks the user if they still want to play or not
-    if done == 'yes':
-        print('Thank you for playing!')
-        clearing(system)
-    elif done == "no":
-        clearing(system)
-        randomword()
-        game(word)
+    
+    end()
+
+
+#Final Question to continue the game
+def end():
+  done = input('Are you done playing the game?(yes or no) ') #asks the user if they still want to play or not
+  if done == 'yes':
+    print('Thank you for playing!')
+    clearing(system)
+  elif done == "no":
+    clearing(system)
+    randomword()
+
+
 
 randomword()
