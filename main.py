@@ -8,6 +8,7 @@ elif system.lower() == "clear":
 else:
     cls = lambda: os.system('cls')   
 
+#essentially just the clear() or cls() 
 def clearing(system):
     if system == "clear":
         clear()
@@ -36,12 +37,12 @@ def blanks(word, letter, blank):
 
 def game(word):
     print("~Hangman!~")
-    blank = [x if x == " " else "_" for x in word]
+    blank = [x if x == " " else "_" for x in word]  #variable that holds all the "_"
     print(" ".join(blank))
     wrongguesses = 0
     listofletters = []
     while wrongguesses < 10:
-        which = input("Would you like to guess a letter or the word? ")
+        which = input("Would you like to guess a letter or the word? ") #asks the user which they want to guess
         if which.lower() == "letter":
             letter = input("Enter a letter: ")
             if letter in listofletters:
@@ -66,7 +67,7 @@ def game(word):
     if wrongguesses >= 10:
         print(":p sorry you didn't win")
     #Final Question to continue the game
-    done = input('Are you done playing the game?(yes or no) ')
+    done = input('Are you done playing the game?(yes or no) ') #asks the user if they still want to play or not
     if done == 'yes':
         print('Thank you for playing!')
         clearing(system)
