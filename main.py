@@ -24,11 +24,15 @@ def randomword():
     game(word)
 
 # function that prints the "_"
-def blanks(word, letter):
-    # where = ["_" if x != letter.lower() else letter for x in word]
-    where = [word.find(letter)]
-    blank[where] = letter
-    print(" ".join(where))
+def blanks(word, letter, blank):
+    for x in range(0, len(word)):
+        if word[x] == letter.lower():
+            blank[x] = letter
+        elif blank[x] != "_":
+            continue
+        else:
+            blank[x] = "_"
+    print(" ".join(blank))
     
 def game(word):
     print("~Hangman!~")
@@ -39,8 +43,9 @@ def game(word):
         which = input("Would you like to guess a letter or the word? ")
         if which.lower() == "letter":
             letter = input("Enter a letter: ")
-            if letter in word:
-                blanks(word, letter)
+            lol = ["_" for x in word]
+            if letter.lower() in word:
+                blanks(word, letter, blank)
             else:
                 print(" ".join(blank))
                 wrongguesses += 1
@@ -53,6 +58,8 @@ def game(word):
             else:
                 print("Oops, try again")
                 wrongguesses += 1
+    if wrongguesses >= 10:
+        print(":p sorry you didn't win")
     #Final Question to continue the game
     done = input('Are you done playing the game?(yes or no) ')
     if done == 'yes':
