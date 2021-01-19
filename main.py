@@ -1,15 +1,15 @@
 #asking so we know which clear to use
 import os 
-system = input("Do you use Windows or Mac? ")
-if system.lower() == "windows":
+system = input("Do you use cls or clear? ")
+if system.lower() == "cls":
     cls = lambda: os.system('cls')
-elif system.lower() == "mac":
+elif system.lower() == "clear":
     clear = lambda: os.system('clear')
 else:
     cls = lambda: os.system('cls')   
 
 def clearing(system):
-    if system == "mac":
+    if system == "clear":
         clear()
     else:
         cls()
@@ -24,10 +24,11 @@ def randomword():
     game(word)
 
 # function that prints the "_"
-def blanks(word, letter, blank):
-    where = word.find(letter)
+def blanks(word, letter):
+    # where = ["_" if x != letter.lower() else letter for x in word]
+    where = [word.find(letter)]
     blank[where] = letter
-    print(" ".join(blank))
+    print(" ".join(where))
     
 def game(word):
     print("~Hangman!~")
@@ -39,7 +40,7 @@ def game(word):
         if which.lower() == "letter":
             letter = input("Enter a letter: ")
             if letter in word:
-                blanks(word, letter, blank)
+                blanks(word, letter)
             else:
                 print(" ".join(blank))
                 wrongguesses += 1
