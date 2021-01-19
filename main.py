@@ -18,6 +18,7 @@ else:
 
 #essentially just the clear() or cls() 
 def clearing(system):
+    '''clears the terminal'''
     if system == "clear":
         clear()
     else:
@@ -29,12 +30,14 @@ import wordlist # list of possible words
 
 #chooses the random word the user must guess
 def randomword():
+    '''chooses a random word that user will guess'''
     x = random.randint(0, len(wordlist.wordlist)-1) # position of random word in word list
     word = wordlist.wordlist.pop(x) # random word
     game(word)
 
 # function that prints the "_" by checking if letter is in word
 def blanks(word, letter, blank):
+    '''checks if letter is in the word or not, replaces them with "_"'''
     for x in range(0, len(word)):
         if word[x] == letter.lower():
             blank[x] = letter
@@ -46,6 +49,7 @@ def blanks(word, letter, blank):
 
 #main game function
 def game(word):
+    '''main game function: checks for wrong guesses, asks for guesses'''
     print("~Hangman!~")
     blank = [x if x == " " else "_" for x in word]  #variable that holds all the "_"
     print(" ".join(blank))
