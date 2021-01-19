@@ -98,6 +98,6 @@ def end():
     clearing(system)
     randomword()
 
-
+#lol
 
 randomword()
