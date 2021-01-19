@@ -36,7 +36,7 @@ def randomword():
     game(word)
 
 # function that prints the "_" by checking if letter is in word
-def blanks(word, letter, blank):
+def blanks(word, letter):
     '''checks if letter is in the word or not, replaces them with "_"'''
     for x in range(0, len(word)):
         if word[x] == letter.lower():
@@ -47,13 +47,28 @@ def blanks(word, letter, blank):
             blank[x] = "_"
     print(" ".join(blank))
 
+def guessedletters(letter):
+    if letter in listofletters:
+        print("You already guessed this letter!")
+    else:
+        listofletters.append(letter)
+        if letter.lower() in word:
+            blanks(word, letter)
+        else:
+            print(" ".join(blank))
+            wrongguesses += 1
+            print(f'You have {10-wrongguesses} wrong guesses left!')
+            
 #main game function
 def game(word):
     '''main game function: checks for wrong guesses, asks for guesses'''
     print("~Hangman!~")
+    global blank
     blank = [x if x == " " else "_" for x in word]  #variable that holds all the "_"
     print(" ".join(blank))
+    global wronguesses
     wrongguesses = 0
+    global listofletters
     listofletters = []
     
     while wrongguesses < 10:
@@ -61,17 +76,7 @@ def game(word):
         
         if which.lower() == "letter":
             letter = input("Enter a letter: ")
-            if letter in listofletters:
-                print("You already guessed this letter!")
-                continue
-            else:
-                listofletters.append(letter)
-            if letter.lower() in word:
-                blanks(word, letter, blank)
-            else:
-                print(" ".join(blank))
-                wrongguesses += 1
-                print(f'You have {10-wrongguesses} wrong guesses left!')
+            guessedletters(letter)
         
         elif which.lower() == "word":
             guess = input("Enter your guess: ")
