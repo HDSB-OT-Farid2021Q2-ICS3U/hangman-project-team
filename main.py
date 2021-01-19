@@ -1,3 +1,10 @@
+#Code: The code selects a word from the list, and the player is supposed guess the word, either as a whole or each individual letter.
+#authors: Zoey Xie, Milton Wang, Nicole Pinto
+#filename: main.py
+#date: 1-19-2021
+#program: allows the player to play a game of hangman and guess a word selected by the computer
+#revision: 1-19-2021
+
 #asking so we know which clear to use
 import os 
 
