@@ -1,9 +1,9 @@
 #Code: The code selects a word from the list, and the player is supposed to guess the word, either as a whole or each individual letter.
 #authors: Zoey Xie, Milton Wang, Nicole Pinto
 #filename: main.py
-#date: 1-19-2021
+#date programmed (start): 1-12-2021
 #program: allows the player to play a game of hangman and guess a word selected by the computer
-#revision: 1-19-2021
+#revision (end): 1-19-2021 08:50
 
 #asking so we know which clear to use
 import os 
@@ -94,6 +94,7 @@ def game(word):
                 
     if wrongguesses >= 10:
         print(":p sorry you didn't win")
+        print(f"Your word was {word}")
     
     end()
 
